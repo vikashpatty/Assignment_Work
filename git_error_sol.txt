@@ -1,0 +1,72 @@
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git init
+Initialized empty Git repository in /media/vikashpatty/32E694C1E69486AF/Work/.git/
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git add -A
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git commit -m "Hey Buddy Sab Upload Kar do"
+[master (root-commit) fabb1bb] Hey Buddy Sab Upload Kar do
+ Committer: Vikash Pateshwari <vikashpatty@localhost.localdomain>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 18 files changed, 6569 insertions(+)
+ create mode 100644 Data_Analysis/Anintegratedfuzzymultiplecriteriasupplierselectionapproachanditsapplicationinaweldingcompany.pdf
+ create mode 100644 Data_Analysis/Published-Data-drivenMappingBetweenProactiveandReactiveMeasuresofOccupationalSafetyPerformance.pdf
+ create mode 100644 ROR/13-03-2018.txt
+ create mode 100644 ROR/19-03-2018.txt
+ create mode 100644 ROR/21-03-2018.txt
+ create mode 100644 ROR/22-03-2018.txt
+ create mode 100644 ROR/bcrypt.txt
+ create mode 100644 Web_NAV/1paged new assignment.pdf
+ create mode 100644 Web_NAV/Django assignment.pdf
+ create mode 100644 Web_NAV/NAVPRAYAS_details final.pdf.pdf
+ create mode 100644 Web_NAV/SourceTreeSetup-2.4.7.0.exe
+ create mode 100644 Web_NAV/Xampp assignment.pdf
+ create mode 100644 Web_NAV/npdbDriver.py
+ create mode 100644 Web_NAV/npdbDriver2.py
+ create mode 100644 Web_NAV/npdbsource.sql
+ create mode 100644 Web_NAV/python assignment.pdf
+ create mode 100644 fixing DPKG.txt
+ create mode 100644 gpg-error.txt
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git remote add origin https://github.com/vikashpatty/Assignment_Work.git
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git push -u origin master
+Username for 'https://github.com': vikashpatty
+Password for 'https://vikashpatty@github.com': 
+Counting objects: 23, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (23/23), 22.78 MiB | 671.00 KiB/s, done.
+Total 23 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/vikashpatty/Assignment_Work.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git branch --set-upstream Assignment_work origin/remote-branch-name
+The --set-upstream flag is deprecated and will be removed. Consider using --track or --set-upstream-to
+error: the requested upstream branch 'origin/remote-branch-name' does not exist
+hint: 
+hint: If you are planning on basing your work on an upstream
+hint: branch that already exists at the remote, you may need to
+hint: run "git fetch" to retrieve it.
+hint: 
+hint: If you are planning to push out a new local branch that
+hint: will track its remote counterpart, you may want to use
+hint: "git push -u" to set the upstream config as you push.
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working tree clean
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git fetch
+vikashpatty@vikashpatty:/media/vikashpatty/32E694C1E69486AF/Work$ git push -u origin master
+Username for 'https://github.com': vikashpatty
+Password for 'https://vikashpatty@github.com': 
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
