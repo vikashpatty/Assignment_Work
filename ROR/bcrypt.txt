@@ -1,0 +1,3 @@
+Bcrypt
+--128bit salt(Radix-64 encoded as 22 characters)
+--184bit hash value(31 charac)

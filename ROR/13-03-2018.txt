@@ -1,0 +1,66 @@
+Database and Migration Rails
+
+rails generate migration create_articles
+#migration of Data base
+
+after creating database migrate it through terminal
+rails db:migrate
+#migrate help to update the database 
+
+rails console
+#TO ACESS THE DATABASE
+
+make a model of databse visit model folder
+create new file
+use same databse name that was generated
+@articles=Articles.all
+
+Articles.create(:tilte=>'Hey Buddy Good Luck',:description=>'This is discriptun')
+
+Zombie.find(:all,:order=>"name")
+
+Json key and value 
+Zombie.find(3).update_attributes(:name=>"Dener",:graveyard=>"RIP")
+#direct method to update the database file 
+
+1st view the database
+then update it through this function
+Article.tilte='heybuddy -edited'
+article.save
+#use this to save in variable
+Article.all
+#shows all article in database
+article.errors.any?
+#it will return to true
+#it shows error
+ article=Article.create(:title=>'Hello Boy',:description=>'Hey Buddy this is description')
+it will return to true
+Webpage Give title discription and save
+For validation use articles.rb
+
+rails s -p $PORT -b $IP
+#port and ip if not valid
+
+
+
+User.create(:username => 'admin', 
+  :password => 'abc123', 
+  :password_confirmation => 'abc123') 
+  # Add other fields, such as first_name, last_name, etc. 
+  # as required by the user model validators.
+  # Perhaps :admin => true
+This assumes a few things (so change as required) such as an authentication system such as authLogic or devise, attribute and field names, etc, but you should be able to adjust to your needs. You can determine what these are by looking at a few things, specifically the database migration files in db/migrate, the model validations in user/model/user, any existing "seeds" filew for users in db/seeds.rb and the authentication system hooks.
+
+As to 'where' to do this - obviously the console works but you might also want to use the seeds file for this. Whatever 'create' command you use in the console can be placed in here, then run with rake db:seed. The downside is that if you check this file into source control it's less secure. The seeds file is really useful for other tasks such as creating reference tables, initial categories, etc.
+
+If you don't have the database actually created at all yet, you'll need to be aware of and use these tasks:
+
+rake db:create 
+# as it sounds, creates a database (but no application tables or columns), 
+# using the config/database.yml file for the connection info.
+
+rake db:migrate 
+# Creates tables and columns using the db/migrate/ files.
+
+rake db:seed 
+# Runs commands in db/seeds.rb to create initial records for the application.

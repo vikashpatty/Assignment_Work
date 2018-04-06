@@ -1,0 +1,264 @@
+Controller's -The brain Of application
+
+1-/app/controller/tweets_controller.rb
+2-/app/views/tweets/show.html.erb
+
+Request /tweets/1
+#look inside controller directory 1
+ rails follows convention over configuration
+
+code inside tweets_controller.rb
+class TweetsController < ApplicationController
+	...
+
+	end
+/app/views/tweets/show.html.erb
+
+<% tweet = Tweet.find(1) %>
+#Searching the id with primaray key as 1
+<h1><%= tweet.status %></h1>
+# %= is used to call the value by database
+<p>Posted by <%= tweet.zombie.name %></p>
+#
+
+
+tweets_controller.rb
+
+class TweetsController < ApplicationController
+	def show
+	@tweet = Tweet.find(1)
+	
+	end
+
+	end
+#its redirecting to show.html.erb
+
+show.html.erb
+
+h1><%= @tweet.status %></h1>
+# %= is used to call the value by database
+#@ is used to use the variable
+<p>Posted by <%= @tweet.zombie.name %></p>
+
+#if we want top redirect it to status.html.erb
+#we just need to add render in the the tweet controller
+#which is controlling the tweet
+#so now the tweets _controller.rb will be changed as follow
+
+class TweetsController < ApplicationController
+	def show
+	@tweet = Tweet.find(1)
+	render action: 'status'
+	
+	end
+
+	end
+#it will redirect to /app/viwe/tweets/status.html.erb as the
+#action is to redirecting to status in tweets_controller.rb
+#now the status.html.erb
+
+#it create a pramas= {id : "1"} it redirect to the route the
+#specific id as per user want
+#so now the tweets_controller.rb
+
+class TweetsController < ApplicationController
+	def show
+	@tweet = Tweet.find(params[:id])
+	render action: 'status'
+	
+	end
+
+	end
+
+#eg of parameters
+/tweets?status=i'm dead
+pramas ={status: "I'm dead"}
+#in json format
+@tweet = Tweet.create(status: params[:status])
+
+/tweets?tweet[status]=i'm dead
+params ={ tweet: {status: "I'm dead"}}
+@tweet = Tweet.create(status: params[:tweet][:status])
+#its recraeting a hash file so should not use this
+#or_it_is_alternate_syntax
+@tweet =Tweet.create(params[:tweet])
+#this syntax is not creating a hash value
+
+#in rail 4 strong_parameter
+reqiure(:tweet)
+#it helps to make it more secure as they may set 
+#any attribute
+permit(:status)
+#so now the the variable tweet will change accordingly as follow
+@tweet =Tweet.create(params.require(:tweet).permit(:status))
+
+#for multiple things we need to setup array
+params.require(:tweet).permit([:status, :location])
+
+@tweet = Tweet.create(params[:tweet])
+#strong params require only when creating or updating multiple attributes
+
+
+Backend API for web_Servers
+
+can use both XML and JSON
+
+#to do so we need to change tweets_controller.rb
+#adding respond_to see the code below
+
+class TweetsController < ApplicationController
+	def show
+	@tweet = Tweet.find(params[:id])
+	respond_to do |format|
+	format.html #show.html.erb
+	format.json{ render json: @tweet }
+	#render json presentation in Tweet Parameter
+	format.xml{ render xml: @tweet }
+	#render xml
+
+	end
+	
+	end
+
+	end
+
+Controller Actions
+/app/controllers/tweets_controller.rb
+
+class TweetsController < ApplicationController::Base
+	def index   #list all tweets
+	
+	def show    #show a single tweet
+
+	def new     #show a new tweet form
+
+	def edit    #show an edit tweet form
+		@tweet = Tweet.find(params[:id])
+
+	def create  #Create a new tweet
+
+	def update  #Update a tweet
+
+	def destroy #Delete a tweet
+
+end
+
+#for some Authentication for user defined
+#we need to add some code in tweets_controller.rb
+#we will add session of zombies_id
+#so now the code will be like this
+#session works like a per user hash
+
+flash[:notice] = "Fuck You its not you who wants to edit"
+#flash is used to send messages to user
+redirect_to(tweets_path)
+#rediret the request for diffrent actions
+
+#or Alternative Syntax
+
+redirect_to(tweets_path,
+	    notice: "Fuck You")
+
+
+class TweetsController < ApplicationController::Base
+	def index   #list all tweets
+	
+	def show    #show a single tweet
+
+	def new     #show a new tweet form
+
+	def edit    #show an edit tweet form
+		@tweet = Tweet.find(params[:id])
+		if session[:zombies_id] != @tweet.zombie_id
+		  flash[:notice] = "Fuck You its not you who wants to edit"
+		#flash is used to send messages to user
+		redirect_to(tweets_path)
+		#rediret the request for diffrent actions
+
+	def create  #Create a new tweet
+
+	def update  #Update a tweet
+
+	def destroy #Delete a tweet
+
+end
+
+
+Now we need to show it to user so we will update
+/app/views/layouts/application.html.erb
+
+#we need to add
+<% if flash[:notice] %>
+  <div id="notice"><%= flash[:notice] %> </div>
+
+
+#for defining action for fdetching tweet
+we will make a new methid say def get_tweet
+and use before_action :get_tweet for every action
+#for specfic cation we will use only
+#view the code for much detiled informatin
+
+
+now the /app/controllers/tweet_controller.rb
+
+
+class TweetsController < ApplicationController::Base
+
+	before_action :get_tweet, only: [:edit, :update, :destroy]
+	#only is used for specific action
+	before_action :check_auth, :only => [:edit, :update, :destroy]
+	#for user authorization
+	def get_tweet
+		@tweet -Tweet.find(params[:id])
+	end
+
+	def index   #list all tweets
+	
+	def show    #show a single tweet
+
+	def new     #show a new tweet form
+
+	def edit    #show an edit tweet form
+		
+	def create  #Create a new tweet
+
+	def update  #Update a tweet
+
+	def destroy #Delete a tweet
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

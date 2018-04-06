@@ -1,0 +1,6 @@
+Go to the OpenPGP Public Key Server. There you can enter your key into the Search String field, leaving everything else as is, then click "Search!".
+When searching for a key, always prepend 0x to it! This means that, for example, you have to search for 0x6AF0E1940624A220 instead of 6AF0E1940624A220.
+Click on the link provided in the pub section. This should take you to page containing the key. The page's heading should be similar to Public Key Server -- Get "0x6AF0E1940624A220"
+Copy everything from underneath the title (starting from -----BEGIN PGP PUBLIC KEY BLOCK-----) and save it in a file (e.g. key1).
+Once you have the file, run the following command
+sudo apt-key add key1

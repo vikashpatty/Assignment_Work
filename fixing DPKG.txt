@@ -1,0 +1,21 @@
+First run:
+
+lsof /var/lib/dpkg/lock
+Then make sure that process isn't running:
+
+ps cax | grep PID
+If it is running:
+
+kill PID
+#wait
+kill -9 PID
+Make sure process is done:
+
+ps cax | grep PID
+Then remove the lock file:
+
+sudo rm /var/lib/dpkg/lock
+Let dpkg fix itself:
+
+sudo dpkg --configure -a
+You should be fine afterwards :)
