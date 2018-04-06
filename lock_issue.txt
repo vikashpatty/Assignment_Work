@@ -1,0 +1,6 @@
+$ sudo rm /var/lib/apt/lists/lock
+
+If the above command doesn’t work, try the one below:
+
+$ sudo killall apt-get
+
