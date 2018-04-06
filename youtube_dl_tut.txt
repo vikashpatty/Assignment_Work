@@ -1,0 +1,17 @@
+Youtube-dl Tutorial
+
+$ youtube-dl https://www.youtube.com/watch?v=EatzcaVJRMs
+
+#it will download a single video
+
+$ youtube-dl -cit https://www.youtube.com/watch?v=EatzcaVJRMs&list=RDMMEatzcaVJRMs
+
+#it will download all video in the playlist
+
+$ youtube-dl -cit --extract-audio --audio-format mp3 https://www.youtube.com/watch?v=EatzcaVJRMs&list=RDMMEatzcaVJRMs
+
+#For MP3 format Audio can saved. But audio saves as .m4a format on my machine. 
+
+$ youtube-dl -cit -a file_name_in_which_you_paste_URL_list
+
+#Also you can create URL list in a simple text file and use following command.
